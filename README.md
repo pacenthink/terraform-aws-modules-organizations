@@ -54,15 +54,12 @@ $ git push --set-upstream origin feature/abc
 **Important Note**:This project includes a [Makefile](https://github.com/nurdsoft/fajardo-trucking-shared-gcp-infra/blob/main/Makefile) to speed up local development in Terraform. The `make` targets act as a wrapper around Terraform commands. As such, `make` has only been tested/verified on **Linux/Mac OS**. Though, it is possible to [install make using Chocolatey](https://community.chocolatey.org/packages/make), we **do not** guarantee this approach as it has not been tested/verified. You may use the commands in the [Makefile](https://github.com/nurdsoft/fajardo-trucking-shared-gcp-infra/blob/main/Makefile) as a guide to run each Terraform command locally on Windows.
 
 ```sh
-# Options:
-# SVC: [ bucket, aws-org ]
-# ENV: [ prod, nonprod ]
 # Perform a dry-run on the infrastructure
-$ make plan SVC=bucket ENV=nonprod
+$ make plan
 # Create the infrastructure
-$ make apply SVC=bucket ENV=nonprod
+$ make apply
 # Perform a dry-run on a destroy
-$ make plan-destroy SVC=bucket ENV=nonprod
+$ make plan-destroy
 # Destroy the infrastructure
-$ make destroy SVC=bucket ENV=nonprod
+$ make destroy
 ```
