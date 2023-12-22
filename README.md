@@ -21,7 +21,7 @@ Contributions are always welcome. As such, this project uses the `main` branch a
 
 **Step 1**. Clone this project.
 ```sh
-# Using Git
+# Using SSH
 $ git clone git@github.com:pacenthink/terraform-aws-organizations.git
 
 # Using HTTPS
@@ -33,6 +33,7 @@ $ git clone https://github.com/pacenthink/terraform-aws-organizations.git
 **Step 3**. Validate the change/s locally by executing the steps defined under [Test](#test).
 
 **Step 4**. If testing is successful, commit and push the new change/s to the remote.
+
 ```sh
 $ git add file1 file2 ...
 
@@ -56,10 +57,13 @@ $ git push --set-upstream origin feature/abc
 ```sh
 # Perform a dry-run on the infrastructure
 $ make plan
+
 # Create the infrastructure
 $ make apply
+
 # Perform a dry-run on a destroy
 $ make plan-destroy
+
 # Destroy the infrastructure
 $ make destroy
 ```
