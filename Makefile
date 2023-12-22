@@ -38,7 +38,7 @@ apply:
 	terraform   apply -auto-approve -input=false -state=${TF_STATE_FILEPATH}
 
 ## plan-destroy: Run terraform plan destroy for the provided service.
-plan-destroy:
+plan-destroy: clean
 	terraform   plan -destroy ${DEFAULT_PLAN_ARGS} -state=${TF_STATE_FILEPATH}
 
 ## destroy: Run terraform destroy for the provided service.
