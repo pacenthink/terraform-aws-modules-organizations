@@ -51,3 +51,7 @@ clean:
 	@find . -name ".terraform.lock.hcl" -type f -print0 | xargs -0 -I {} rm -rf "{}"
 	@find . -name "plan.tfplan" -type f -print0 | xargs -0 -I {} rm -rf "{}"
 	@rm -f ${TF_STATE_FILEPATH}
+
+## docs : Generate documentation for the module.
+docs:
+	@terraform-docs markdown .
