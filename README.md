@@ -118,7 +118,7 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="account_name"></a> [account\_name](#input\_account\_name) | Name of the new AWS org account. | `string` | `""` | yes |
-| <a name="account_email"></a> [account\email](#input\_account\_email) | Email of the new AWS org account. | `string` | `""` | yes |
+| <a name="account_email"></a> [account\_email](#input\_account\_email) | Email of the new AWS org account. | `string` | `""` | yes |
 | <a name="close_on_deletion"></a> [close\_on\_deletion](#input\_close\_on\_deletion) | If true, a deletion event will close the account. Otherwise, it will only remove from the organization. | `string` | `"false"` | no |
 
 ## Outputs
