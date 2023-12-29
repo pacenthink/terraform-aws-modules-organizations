@@ -1,6 +1,24 @@
-# terraform-aws-organizations
+# terraform-aws-modules-organizations
 
-A repository to house shared infrastructure components for the Fajardo Group.
+A module to provision an organization in AWS.
+
+## Resources 
+
+The module supports the following resources:
+
+- AWS organization
+
+## Usage
+
+```hcl
+module aws_organizations_account {
+  source = "./terraform-aws-organizations/"
+  account_name = "aws-nurdsoft-demo"
+  account_email = "devops@nurdsoft.co"
+  close_on_deletion = "true"
+}
+
+```
 
 ## Assumptions
 
@@ -14,6 +32,7 @@ The repository assumes the following:
 - (Optional - for local testing) A basic understanding of [Make](https://www.gnu.org/software/make/manual/make.html#Introduction).
   - Make version `>= GNU Make 3.81`.
   - **Important Note**: This project includes a [Makefile](https://github.com/pacenthink/terraform-aws-organizations/blob/main/Makefile) to speed up local development in Terraform. The `make` targets act as a wrapper around Terraform commands. As such, `make` has only been tested/verified on **Linux/Mac OS**. Though, it is possible to [install make using Chocolatey](https://community.chocolatey.org/packages/make), we **do not** guarantee this approach as it has not been tested/verified. You may use the commands in the [Makefile](https://github.com/pacenthink/terraform-aws-organizations/blob/main/Makefile) as a guide to run each Terraform command locally on Windows.
+
 
 ## Contributions
 
@@ -55,6 +74,9 @@ $ git push --set-upstream origin feature/abc
 **Important Note**:This project includes a [Makefile](https://github.com/pacenthink/terraform-aws-organizations/blob/main/Makefile) to speed up local development in Terraform. The `make` targets act as a wrapper around Terraform commands. As such, `make` has only been tested/verified on **Linux/Mac OS**. Though, it is possible to [install make using Chocolatey](https://community.chocolatey.org/packages/make), we **do not** guarantee this approach as it has not been tested/verified. You may use the commands in the [Makefile](https://github.com/nurdsoft/pacenthink/terraform-aws-organizations/blob/main/Makefile) as a guide to run each Terraform command locally on Windows.
 
 ```sh
+# Change Dir to examples
+$ cd /examples
+
 # Perform a dry-run on the infrastructure
 $ make plan
 
@@ -67,3 +89,41 @@ $ make plan-destroy
 # Destroy the infrastructure
 $ make destroy
 ```
+
+## Requirements
+
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | 4.66.1 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.66.1 |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [aws_organizations_account](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/organizations_account) | resource |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="account_name"></a> [account\_name](#input\_account\_name) | Name of the new AWS org account. | `string` | `""` | yes |
+| <a name="account_email"></a> [account\email](#input\_account\_email) | Email of the new AWS org account. | `string` | `""` | yes |
+| <a name="close_on_deletion"></a> [close\_on\_deletion](#input\_close\_on\_deletion) | If true, a deletion event will close the account. Otherwise, it will only remove from the organization. | `string` | `"false"` | no |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="account_arn"></a> [account\_arn](#output\_account\_arn) | ARN of the new AWS org account |
+| <a name="account_id"></a> [account\_id](#output\_account\_id) | The AWS account ID |
