@@ -12,10 +12,18 @@ The module supports the following resources:
 
 ```hcl
 module aws_organizations_account {
-  source = "./terraform-aws-organizations/"
+  source = "https://github.com/pacenthink/terraform-aws-modules-organizations.git"
   account_name = "aws-nurdsoft-demo"
   account_email = "devops@nurdsoft.co"
   close_on_deletion = "true"
+}
+
+```
+```hcl
+module aws_organizations_account {
+  source = "https://github.com/pacenthink/terraform-aws-modules-organizations.git"
+  account_name = "aws-nurdsoft-demo"
+  account_email = "devops@nurdsoft.co"
 }
 
 ```
