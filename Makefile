@@ -33,7 +33,7 @@ validate:
 
 ## plan: Run terraform plan for the provided service.
 plan: clean fmt init validate
-	terraform -chdir=${DIR} plan ${DEFAULT_PLAN_ARGS}
+	terraform -chdir=${DIR} plan ${DEFAULT_PLAN_ARGS} -no-color
 
 ## apply: Run terraform apply for the provided service.
 apply:
