@@ -42,7 +42,7 @@ jobs:
       - name: Make Plan
         id: plan
         if: github.event_name == 'pull_request'
-        run: make plan DIR=examples
+        run: make plan DIR=examples/default
         continue-on-error: true
       
       - name: Update Pull Request
