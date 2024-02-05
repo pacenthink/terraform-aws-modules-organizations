@@ -82,8 +82,8 @@ $ git push --set-upstream origin feature/abc
 **Important Note**:This project includes a [Makefile](https://github.com/pacenthink/terraform-aws-organizations/blob/main/Makefile) to speed up local development in Terraform. The `make` targets act as a wrapper around Terraform commands. As such, `make` has only been tested/verified on **Linux/Mac OS**. Though, it is possible to [install make using Chocolatey](https://community.chocolatey.org/packages/make), we **do not** guarantee this approach as it has not been tested/verified. You may use the commands in the [Makefile](https://github.com/nurdsoft/pacenthink/terraform-aws-organizations/blob/main/Makefile) as a guide to run each Terraform command locally on Windows.
 
 ```sh
-# Change Dir to examples
-$ cd /examples
+# Run examples
+$ make plan DIR=examples
 
 # Perform a dry-run on the infrastructure
 $ make plan
