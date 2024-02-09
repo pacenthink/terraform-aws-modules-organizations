@@ -83,7 +83,7 @@ $ git push --set-upstream origin feature/abc
 
 ```sh
 # Run examples
-$ make plan DIR=examples
+$ make plan DIR=examples/default
 
 # Perform a dry-run on the infrastructure
 $ make plan

@@ -1,3 +1,11 @@
+terraform {
+  backend "s3" {
+    bucket = "aws/usw2/modules/aws-organization"
+    key    = "aws/usw2/dev/bnd/client"
+    region = "us-east-1"
+  }
+}
+
 module "aws_organizations_account" {
   source        = "github.com/pacenthink/terraform-aws-modules-organizations.git?ref=feat%2FRAD-1286"
   account_name  = "examples-default"
