@@ -1,7 +1,7 @@
 module "aws_organizations_account" {
-  source        = "../../"
-  account_name  = "aws-nurdsoft-demo"
-  account_email = "devops@nurdsoft.co"
+  source        = "github.com/pacenthink/terraform-aws-modules-organizations.git?ref=feat%2FRAD-1286"
+  account_name  = "examples-default"
+  account_email = "examples-default@nurdsoft.co"
 }
 
 output "new_account_arn" {

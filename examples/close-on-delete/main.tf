@@ -1,5 +1,5 @@
 module "aws_organizations_account" {
-  source            = "../../"
+  source            = "github.com/pacenthink/terraform-aws-modules-organizations.git?ref=feat%2FRAD-1286"
   account_name      = "aws-nurdsoft-demo"
   account_email     = "devops@nurdsoft.co"
   close_on_deletion = "true"
