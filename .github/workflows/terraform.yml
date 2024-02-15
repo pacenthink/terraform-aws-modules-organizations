@@ -60,19 +60,23 @@ jobs:
         with:
           github-token: ${{ secrets.TP_GH_PAT }}
           script: |
-            const output = `#### Terraform Plan 📖\`${{ steps.plan_default.outcome }}\`
+            const output = `#### Terraform Plan 📖
+
+            **Default Plan Outcome:** \`${{ steps.plan_default.outcome }}\`
 
             <details><summary>Show Default Plan</summary>
 
-            \`\`\`\n
+            \`\`\`hcl
             ${process.env.PLAN_DEFAULT}
             \`\`\`
 
-            \`${{ steps.plan_close_on_delete.outcome }}\`
+            </details>
 
-            <details><summary>Show Close-on-delete example Plan</summary>
+            **Close-on-Delete Plan Outcome:** \`${{ steps.plan_close_on_delete.outcome }}\`
 
-            \`\`\`\n
+            <details><summary>Show Close-on-delete Plan</summary>
+
+            \`\`\`hcl
             ${process.env.PLAN_CLOSE_ON_DELETE}
             \`\`\`
 
