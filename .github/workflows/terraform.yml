@@ -39,26 +39,41 @@ jobs:
         with:
           terraform_version: 1.0.2
 
-      - name: Make Plan
-        id: plan
+      - name: Make Plan Example default
+        id: plan_default
         if: github.event_name == 'pull_request'
         run: make plan DIR=examples/default
+        continue-on-error: true
+
+      - name: Make Plan Example close-on-delete
+        id: plan_close_on_delete
+        if: github.event_name == 'pull_request'
+        run: make plan DIR=examples/close-on-delete
         continue-on-error: true
       
       - name: Update Pull Request
         uses: actions/github-script@v6
         if: github.event_name == 'pull_request'
         env:
-          PLAN: "terraform\n${{ steps.plan.outputs.stdout }}"
+          PLAN_DEFAULT: "terraform\n${{ steps.plan_default.outputs.stdout }}"
+          PLAN_CLOSE_ON_DELETE: "terraform\n${{ steps.plan_close_on_delete.outputs.stdout }}"
         with:
           github-token: ${{ secrets.TP_GH_PAT }}
           script: |
-            const output = `#### Terraform Plan 📖\`${{ steps.plan.outcome }}\`
+            const output = `#### Terraform Plan 📖\`${{ steps.plan_default.outcome }}\`
 
-            <details><summary>Show Plan</summary>
+            <details><summary>Show Default Plan</summary>
 
             \`\`\`\n
-            ${process.env.PLAN}
+            ${process.env.PLAN_DEFAULT}
+            \`\`\`
+
+            \`${{ steps.plan_close_on_delete.outcome }}\`
+
+            <details><summary>Show Close-on-delete example Plan</summary>
+
+            \`\`\`\n
+            ${process.env.PLAN_CLOSE_ON_DELETE}
             \`\`\`
 
             </details>
