@@ -7,7 +7,7 @@ terraform {
 }
 
 module "aws_organizations_account" {
-  source        = "github.com/pacenthink/terraform-aws-modules-organizations.git?ref=feat%2FRAD-1286"
+  source        = "../../"
   account_name  = "examples-default"
   account_email = "examples-default@nurdsoft.co"
 }
