@@ -39,13 +39,13 @@ jobs:
         with:
           terraform_version: 1.0.2
 
-      - name: Make Plan Example default
+      - name: Make Plan
         id: plan_default
         if: github.event_name == 'pull_request'
         run: make plan DIR=examples/default
         continue-on-error: true
 
-      - name: Make Plan Example close-on-delete
+      - name: Make Plan
         id: plan_close_on_delete
         if: github.event_name == 'pull_request'
         run: make plan DIR=examples/close-on-delete
