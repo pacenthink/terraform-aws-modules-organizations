@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
     bucket = "aws-shared-terraform-state"
-    key    = "aws/usw2/modules/aws-organization"
+    key    = "aws/usw2/modules/aws-organization/default"
     region = "us-east-1"
   }
 }
